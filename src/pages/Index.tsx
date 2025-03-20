@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -40,33 +39,33 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>HomeFix - Expert Appliance Repair Services</title>
+        <title>Appliance Care - Expert Appliance Repair Services</title>
         <meta name="description" content="Professional repair services for washing machines, refrigerators, ACs, TVs, and microwaves. Fast, reliable service with certified technicians." />
         <meta name="keywords" content="appliance repair, washing machine repair, refrigerator repair, AC repair, TV repair, microwave repair" />
-        <link rel="canonical" href="https://www.homefix.com" />
+        <link rel="canonical" href="https://www.customercareservice.co" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.homefix.com" />
-        <meta property="og:title" content="HomeFix - Expert Appliance Repair Services" />
+        <meta property="og:url" content="https://www.customercareservice.co" />
+        <meta property="og:title" content="Appliance Care - Expert Appliance Repair Services" />
         <meta property="og:description" content="Professional repair services for washing machines, refrigerators, ACs, TVs, and microwaves." />
-        <meta property="og:image" content="https://www.homefix.com/og-image.jpg" />
+        <meta property="og:image" content="https://www.customercareservice.co/og-image.jpg" />
         
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.homefix.com" />
-        <meta property="twitter:title" content="HomeFix - Expert Appliance Repair Services" />
+        <meta property="twitter:url" content="https://www.customercareservice.co" />
+        <meta property="twitter:title" content="Appliance Care - Expert Appliance Repair Services" />
         <meta property="twitter:description" content="Professional repair services for washing machines, refrigerators, ACs, TVs, and microwaves." />
-        <meta property="twitter:image" content="https://www.homefix.com/og-image.jpg" />
+        <meta property="twitter:image" content="https://www.customercareservice.co/og-image.jpg" />
         
         {/* Schema.org markup for Google */}
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "HomeFix Appliance Repair",
-            "image": "https://www.homefix.com/logo.jpg",
-            "url": "https://www.homefix.com",
+            "name": "Appliance Care Appliance Repair",
+            "image": "https://www.customercareservice.co/logo.jpg",
+            "url": "https://www.customercareservice.co",
             "telephone": "(888) 555-HELP",
             "address": {
               "@type": "PostalAddress",
@@ -102,9 +101,9 @@ const Index = () => {
               }
             ],
             "sameAs": [
-              "https://www.facebook.com/homefix",
-              "https://www.twitter.com/homefix",
-              "https://www.instagram.com/homefix"
+              "https://www.facebook.com/#",
+              "https://www.twitter.com/#",
+              "https://www.instagram.com/#"
             ]
           }
         `}</script>

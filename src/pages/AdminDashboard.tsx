@@ -131,13 +131,13 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Helmet>
-        <title>Admin Dashboard | HomeFix Appliance Repair</title>
-        <meta name="description" content="Admin dashboard for HomeFix appliance repair service" />
+        <title>Admin Dashboard | Appliance Care</title>
+        <meta name="description" content="Admin dashboard for Appliance Care appliance repair service" />
       </Helmet>
       
       <header className="bg-white shadow-sm p-4 border-b">
         <div className="container mx-auto flex items-center justify-between">
-          <h1 className="text-xl font-bold text-primary">HomeFix Admin</h1>
+          <h1 className="text-xl font-bold text-primary">Appliance Care Admin</h1>
           <Button variant="outline" onClick={handleLogout}>Logout</Button>
         </div>
       </header>
@@ -260,7 +260,7 @@ const AdminDashboard = () => {
       </main>
       
       <footer className="bg-white border-t p-4 text-center text-sm text-muted-foreground">
-        <p>© 2023 HomeFix Appliance Repair. All rights reserved.</p>
+        <p>© 2025 Appliance Care Appliance Repair. All rights reserved.</p>
       </footer>
     </div>
   );

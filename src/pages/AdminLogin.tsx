@@ -47,8 +47,8 @@ const AdminLogin = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <Helmet>
-        <title>Admin Login | HomeFix Appliance Repair</title>
-        <meta name="description" content="Admin login for HomeFix appliance repair service" />
+        <title>Admin Login | Appliance Care</title>
+        <meta name="description" content="Admin login for Appliance Care appliance repair service" />
       </Helmet>
       
       <Card className="w-full max-w-md">
@@ -74,7 +74,7 @@ const AdminLogin = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@homefix.com"
+                placeholder="User Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
