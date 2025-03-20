@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 
 const Navbar = () => {
@@ -21,27 +20,50 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="font-heading text-2xl font-bold text-primary">
+        <a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="font-heading text-2xl font-bold text-primary">
           HomeFix
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="#services" className="font-medium text-foreground/80 hover:text-primary transition-colors">
+          <button 
+            onClick={() => scrollToSection('services')}
+            className="font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
             Services
-          </Link>
-          <Link to="#why-choose-us" className="font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('why-choose-us')}
+            className="font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
             Why Choose Us
-          </Link>
-          <Link to="#testimonials" className="font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('testimonials')}
+            className="font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
             Testimonials
-          </Link>
-          <Link to="#contact" className="font-medium text-foreground/80 hover:text-primary transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="font-medium text-foreground/80 hover:text-primary transition-colors"
+          >
             Contact
-          </Link>
+          </button>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -49,8 +71,8 @@ const Navbar = () => {
             <Phone size={18} className="mr-2" />
             <span className="font-medium">888-555-HELP</span>
           </div>
-          <Button asChild>
-            <a href="#contact">Get a Quote</a>
+          <Button onClick={() => scrollToSection('contact')}>
+            Get a Quote
           </Button>
         </div>
 
@@ -67,44 +89,39 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white w-full px-6 py-4 flex flex-col space-y-4 shadow-subtle animate-slide-in-bottom">
-          <Link 
-            to="#services" 
-            className="font-medium py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
+          <button 
+            className="font-medium py-2 text-left"
+            onClick={() => scrollToSection('services')}
           >
             Services
-          </Link>
-          <Link 
-            to="#why-choose-us" 
-            className="font-medium py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
+          </button>
+          <button 
+            className="font-medium py-2 text-left"
+            onClick={() => scrollToSection('why-choose-us')}
           >
             Why Choose Us
-          </Link>
-          <Link 
-            to="#testimonials" 
-            className="font-medium py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
+          </button>
+          <button 
+            className="font-medium py-2 text-left"
+            onClick={() => scrollToSection('testimonials')}
           >
             Testimonials
-          </Link>
-          <Link 
-            to="#contact" 
-            className="font-medium py-2"
-            onClick={() => setIsMobileMenuOpen(false)}
+          </button>
+          <button 
+            className="font-medium py-2 text-left"
+            onClick={() => scrollToSection('contact')}
           >
             Contact
-          </Link>
+          </button>
           <div className="flex items-center text-primary py-2">
             <Phone size={18} className="mr-2" />
             <span className="font-medium">888-555-HELP</span>
           </div>
           <Button 
-            asChild 
             className="w-full"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => scrollToSection('contact')}
           >
-            <a href="#contact">Get a Quote</a>
+            Get a Quote
           </Button>
         </div>
       )}
