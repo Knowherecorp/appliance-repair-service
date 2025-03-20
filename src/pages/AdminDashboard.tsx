@@ -4,10 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { 
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Helmet } from 'react-helmet-async';
 import { useToast } from "@/components/ui/use-toast";
+import { Trash2 } from 'lucide-react';
+import { getContactSubmissions, deleteContactSubmission, updateSubmissionStatus } from '@/utils/api';
 
-// Mock data for demo purposes - in a real app, this would come from a database
+// Interface for contact form submissions
 interface Inquiry {
   id: string;
   name: string;
@@ -21,50 +34,28 @@ interface Inquiry {
   submittedAt: string;
 }
 
-const mockInquiries: Inquiry[] = [
-  {
-    id: '1',
-    name: 'John Smith',
-    phone: '(555) 123-4567',
-    email: 'john.smith@example.com',
-    service: 'Refrigerator Repair',
-    date: '2023-12-15',
-    time: 'Morning (8AM - 12PM)',
-    problem: 'Refrigerator not cooling properly',
-    status: 'New',
-    submittedAt: '2023-12-10T14:30:00'
-  },
-  {
-    id: '2',
-    name: 'Emily Johnson',
-    phone: '(555) 987-6543',
-    email: 'emily.j@example.com',
-    service: 'Washing Machine Repair',
-    date: '2023-12-16',
-    time: 'Afternoon (12PM - 4PM)',
-    problem: 'Loud noise during spin cycle',
-    status: 'Contacted',
-    submittedAt: '2023-12-11T09:15:00'
-  },
-  {
-    id: '3',
-    name: 'Michael Davis',
-    phone: '(555) 456-7890',
-    email: 'michael.d@example.com',
-    service: 'AC Repair',
-    date: '2023-12-17',
-    time: 'Evening (4PM - 8PM)',
-    problem: 'AC not cooling and making strange noises',
-    status: 'Scheduled',
-    submittedAt: '2023-12-10T16:45:00'
-  }
-];
-
 const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const fetchInquiries = async () => {
+    setIsLoading(true);
+    try {
+      const data = await getContactSubmissions();
+      setInquiries(data);
+    } catch (error) {
+      console.error('Error fetching inquiries:', error);
+      toast({
+        title: "Error",
+        description: "Failed to load inquiries. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Check if admin is logged in
@@ -75,11 +66,7 @@ const AdminDashboard = () => {
       return;
     }
     
-    // Simulate loading inquiries from an API
-    setTimeout(() => {
-      setInquiries(mockInquiries);
-      setIsLoading(false);
-    }, 1000);
+    fetchInquiries();
   }, [navigate]);
 
   const handleLogout = () => {
@@ -91,15 +78,54 @@ const AdminDashboard = () => {
     navigate('/admin');
   };
 
-  const handleStatusChange = (id: string, status: Inquiry['status']) => {
-    setInquiries(inquiries.map(inquiry => 
-      inquiry.id === id ? { ...inquiry, status } : inquiry
-    ));
-    
-    toast({
-      title: "Status updated",
-      description: `Inquiry #${id} status changed to ${status}`,
-    });
+  const handleStatusChange = async (id: string, status: Inquiry['status']) => {
+    try {
+      const success = await updateSubmissionStatus(id, status);
+      
+      if (success) {
+        setInquiries(inquiries.map(inquiry => 
+          inquiry.id === id ? { ...inquiry, status } : inquiry
+        ));
+        
+        toast({
+          title: "Status updated",
+          description: `Inquiry #${id} status changed to ${status}`,
+        });
+      } else {
+        throw new Error('Failed to update status');
+      }
+    } catch (error) {
+      console.error('Error updating status:', error);
+      toast({
+        title: "Update failed",
+        description: "Failed to update inquiry status",
+        variant: "destructive"
+      });
+    }
+  };
+  
+  const handleDeleteInquiry = async (id: string) => {
+    try {
+      const success = await deleteContactSubmission(id);
+      
+      if (success) {
+        setInquiries(inquiries.filter(inquiry => inquiry.id !== id));
+        
+        toast({
+          title: "Inquiry deleted",
+          description: `Inquiry #${id} has been deleted successfully`,
+        });
+      } else {
+        throw new Error('Failed to delete inquiry');
+      }
+    } catch (error) {
+      console.error('Error deleting inquiry:', error);
+      toast({
+        title: "Delete failed",
+        description: "Failed to delete inquiry",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
@@ -135,7 +161,7 @@ const AdminDashboard = () => {
                       <TableHead>Service</TableHead>
                       <TableHead>Date & Time</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead>Action</TableHead>
+                      <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -192,6 +218,31 @@ const AdminDashboard = () => {
                               <option value="Scheduled">Scheduled</option>
                               <option value="Completed">Completed</option>
                             </select>
+                            
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button variant="destructive" size="sm">
+                                  <Trash2 className="h-4 w-4" />
+                                </Button>
+                              </AlertDialogTrigger>
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>Delete Inquiry</AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    Are you sure you want to delete this inquiry? This action cannot be undone.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                  <AlertDialogAction 
+                                    onClick={() => handleDeleteInquiry(inquiry.id)}
+                                    className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                  >
+                                    Delete
+                                  </AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
                           </div>
                         </TableCell>
                       </TableRow>

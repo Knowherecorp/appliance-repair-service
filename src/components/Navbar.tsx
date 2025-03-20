@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, ShieldCheck } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -65,10 +65,6 @@ const Navbar = () => {
           >
             Contact
           </button>
-          <Link to="/admin" className="font-medium text-foreground/80 hover:text-primary transition-colors flex items-center">
-            <ShieldCheck size={16} className="mr-1" />
-            Admin
-          </Link>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -118,10 +114,6 @@ const Navbar = () => {
           >
             Contact
           </button>
-          <Link to="/admin" className="font-medium py-2 text-left flex items-center">
-            <ShieldCheck size={16} className="mr-1" />
-            Admin
-          </Link>
           <div className="flex items-center text-primary py-2">
             <Phone size={18} className="mr-2" />
             <span className="font-medium">888-555-HELP</span>

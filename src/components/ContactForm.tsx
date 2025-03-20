@@ -13,27 +13,77 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, CheckCircle } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
+import { submitContactForm, FormData } from "@/utils/api";
 
 const ContactForm = () => {
   const { toast } = useToast();
   const sectionRef = useRef<HTMLElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    date: '',
+    time: '',
+    problem: ''
+  });
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+  
+  const handleSelectChange = (id: string, value: string) => {
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
+    try {
+      const response = await submitContactForm(formData);
+      
+      if (response.success) {
+        setSubmitted(true);
+        toast({
+          title: "Request Submitted",
+          description: "We've received your service request and will contact you shortly.",
+          duration: 5000,
+        });
+      } else {
+        toast({
+          title: "Submission Error",
+          description: response.message,
+          variant: "destructive",
+          duration: 5000,
+        });
+      }
+    } catch (error) {
       toast({
-        title: "Request Submitted",
-        description: "We've received your service request and will contact you shortly.",
+        title: "Submission Error",
+        description: "There was a problem submitting your request. Please try again.",
+        variant: "destructive",
         duration: 5000,
       });
-    }, 1500);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+      date: '',
+      time: '',
+      problem: ''
+    });
+    setSubmitted(false);
   };
   
   useEffect(() => {
@@ -91,7 +141,7 @@ const ContactForm = () => {
                       Thank you for contacting HomeFix. Our team will reach out to you shortly to confirm your appointment.
                     </p>
                     <Button 
-                      onClick={() => setSubmitted(false)}
+                      onClick={resetForm}
                       variant="outline"
                     >
                       Submit Another Request
@@ -108,6 +158,8 @@ const ContactForm = () => {
                           id="name"
                           type="text"
                           placeholder="Your full name"
+                          value={formData.name}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
@@ -120,6 +172,8 @@ const ContactForm = () => {
                           id="phone"
                           type="tel"
                           placeholder="Your phone number"
+                          value={formData.phone}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
@@ -132,6 +186,8 @@ const ContactForm = () => {
                           id="email"
                           type="email"
                           placeholder="Your email address"
+                          value={formData.email}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
@@ -140,7 +196,7 @@ const ContactForm = () => {
                         <label htmlFor="service" className="text-sm font-medium">
                           Service Needed
                         </label>
-                        <Select>
+                        <Select onValueChange={(value) => handleSelectChange('service', value)}>
                           <SelectTrigger id="service">
                             <SelectValue placeholder="Select service type" />
                           </SelectTrigger>
@@ -163,6 +219,8 @@ const ContactForm = () => {
                           id="date"
                           type="date"
                           min={new Date().toISOString().split('T')[0]}
+                          value={formData.date}
+                          onChange={handleInputChange}
                           required
                         />
                       </div>
@@ -171,26 +229,28 @@ const ContactForm = () => {
                         <label htmlFor="time" className="text-sm font-medium">
                           Preferred Time
                         </label>
-                        <Select>
+                        <Select onValueChange={(value) => handleSelectChange('time', value)}>
                           <SelectTrigger id="time">
                             <SelectValue placeholder="Select time slot" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="morning">Morning (8AM - 12PM)</SelectItem>
-                            <SelectItem value="afternoon">Afternoon (12PM - 4PM)</SelectItem>
-                            <SelectItem value="evening">Evening (4PM - 8PM)</SelectItem>
+                            <SelectItem value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</SelectItem>
+                            <SelectItem value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</SelectItem>
+                            <SelectItem value="Evening (4PM - 8PM)">Evening (4PM - 8PM)</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
                     </div>
                     
                     <div className="space-y-2 mb-8">
-                      <label htmlFor="message" className="text-sm font-medium">
+                      <label htmlFor="problem" className="text-sm font-medium">
                         Problem Description
                       </label>
                       <Textarea 
-                        id="message"
+                        id="problem"
                         placeholder="Please describe the issue you're experiencing with your appliance"
+                        value={formData.problem}
+                        onChange={handleInputChange}
                         rows={4}
                       />
                     </div>
