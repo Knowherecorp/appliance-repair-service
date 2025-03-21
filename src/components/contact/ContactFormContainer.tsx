@@ -1,5 +1,4 @@
-
-import { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { submitContactForm, FormData } from "@/utils/api";
 import ContactInformation from "./ContactInformation";
@@ -77,8 +76,7 @@ const ContactFormContainer = () => {
     setSubmitted(false);
   };
   
-  // Same intersection observer logic as before
-  React.useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
