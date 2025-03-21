@@ -7,8 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
 import { Helmet } from 'react-helmet-async';
+import { signInWithEmail } from '@/utils/auth';
 
 // Demo credentials - in a real app, these would be handled securely
+// Create a user with these credentials in Supabase Auth
 const DEMO_EMAIL = "admin@homefix.com";
 const DEMO_PASSWORD = "admin123";
 
@@ -20,15 +22,16 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
-    // Simple demo authentication
-    setTimeout(() => {
-      if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
-        // Set admin session in localStorage
+    try {
+      const result = await signInWithEmail(email, password);
+      
+      if (result.success) {
+        // Set admin session
         localStorage.setItem('adminLoggedIn', 'true');
         
         toast({
@@ -38,10 +41,20 @@ const AdminLogin = () => {
         
         navigate('/admin/dashboard');
       } else {
-        setError('Invalid email or password');
+        setError(result.message || 'Invalid email or password');
       }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
+  };
+
+  // Add demo login helpers for easy testing
+  const fillDemoCredentials = () => {
+    setEmail(DEMO_EMAIL);
+    setPassword(DEMO_PASSWORD);
   };
 
   return (
@@ -74,7 +87,7 @@ const AdminLogin = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="User Email"
+                placeholder="Admin Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -104,6 +117,18 @@ const AdminLogin = () => {
             >
               {isLoading ? "Logging in..." : "Log In"}
             </Button>
+
+            <div className="text-center">
+              <Button 
+                type="button" 
+                variant="ghost" 
+                size="sm" 
+                onClick={fillDemoCredentials}
+                className="text-xs text-muted-foreground hover:text-primary"
+              >
+                Use Demo Credentials
+              </Button>
+            </div>
           </form>
         </CardContent>
         
