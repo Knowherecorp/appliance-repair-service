@@ -1,10 +1,11 @@
+
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
-import ContactForm from '../components/ContactForm';
+import ContactFormContainer from '../components/contact/ContactFormContainer';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
 
@@ -116,7 +117,7 @@ const Index = () => {
           <Services />
           <WhyChooseUs />
           <Testimonials />
-          <ContactForm />
+          <ContactFormContainer />
         </main>
         <Footer />
       </div>
