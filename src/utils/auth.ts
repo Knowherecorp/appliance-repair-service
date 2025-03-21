@@ -1,5 +1,5 @@
 
-import { supabase } from './api';
+import { supabase } from '@/integrations/supabase/client';
 
 // Sign in with email and password for admin
 export const signInWithEmail = async (email: string, password: string): Promise<{

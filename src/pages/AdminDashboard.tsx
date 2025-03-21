@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,7 @@ import {
 import { Helmet } from 'react-helmet-async';
 import { useToast } from "@/components/ui/use-toast";
 import { Trash2 } from 'lucide-react';
-import { getContactSubmissions, deleteContactSubmission, updateSubmissionStatus } from '@/utils/api';
+import { getContactSubmissions, deleteContactSubmission, updateSubmissionStatus, SubmissionStatus } from '@/utils/api';
 
 // Interface for contact form submissions
 interface Inquiry {
@@ -30,7 +29,7 @@ interface Inquiry {
   date: string;
   time: string;
   problem: string;
-  status: 'New' | 'Contacted' | 'Scheduled' | 'Completed';
+  status: SubmissionStatus;
   submittedAt: string;
 }
 
@@ -78,7 +77,7 @@ const AdminDashboard = () => {
     navigate('/admin');
   };
 
-  const handleStatusChange = async (id: string, status: Inquiry['status']) => {
+  const handleStatusChange = async (id: string, status: SubmissionStatus) => {
     try {
       const success = await updateSubmissionStatus(id, status);
       
@@ -211,7 +210,7 @@ const AdminDashboard = () => {
                             <select
                               className="border rounded-md h-9 px-2 text-sm bg-background"
                               value={inquiry.status}
-                              onChange={(e) => handleStatusChange(inquiry.id, e.target.value as Inquiry['status'])}
+                              onChange={(e) => handleStatusChange(inquiry.id, e.target.value as SubmissionStatus)}
                             >
                               <option value="New">New</option>
                               <option value="Contacted">Contacted</option>

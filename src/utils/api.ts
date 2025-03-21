@@ -12,6 +12,9 @@ export interface FormData {
   problem: string;
 }
 
+// Define status type to match the Inquiry interface in AdminDashboard
+export type SubmissionStatus = 'New' | 'Contacted' | 'Scheduled' | 'Completed';
+
 // Create a mock implementation for local development when Supabase credentials are missing
 const createSupabaseClient = () => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -31,7 +34,7 @@ const createSupabaseClient = () => {
 };
 
 // Use the imported Supabase client if available, otherwise create a new one
-const supabase = supabaseClient || createSupabaseClient();
+export const supabase = supabaseClient || createSupabaseClient();
 
 export const submitContactForm = async (formData: FormData) => {
   // Add a slight delay to simulate network request
@@ -71,7 +74,7 @@ export const getContactSubmissions = async () => {
   if (!supabase) {
     console.warn('Supabase client not available, returning mock data');
     
-    // Return mock data for development
+    // Return mock data for development with proper status typing
     return [
       {
         id: '1',
@@ -82,7 +85,7 @@ export const getContactSubmissions = async () => {
         date: '2025-01-15',
         time: 'Morning (8AM - 12PM)',
         problem: 'Machine not spinning properly',
-        status: 'New',
+        status: 'New' as SubmissionStatus,
         submittedAt: new Date().toISOString()
       },
       {
@@ -94,7 +97,7 @@ export const getContactSubmissions = async () => {
         date: '2025-01-16',
         time: 'Afternoon (12PM - 4PM)',
         problem: 'Refrigerator not cooling',
-        status: 'Contacted',
+        status: 'Contacted' as SubmissionStatus,
         submittedAt: new Date().toISOString()
       }
     ];
@@ -109,6 +112,7 @@ export const getContactSubmissions = async () => {
     if (error) throw error;
     
     // Map the data to match the expected format in the admin dashboard
+    // And ensure status is cast to the correct type
     return data.map(item => ({
       id: item.id.toString(),
       name: item.name,
@@ -118,7 +122,7 @@ export const getContactSubmissions = async () => {
       date: item.date,
       time: item.time,
       problem: item.problem,
-      status: item.status || 'New',
+      status: (item.status || 'New') as SubmissionStatus,
       submittedAt: item.submitted_at
     }));
   } catch (error) {
@@ -128,17 +132,20 @@ export const getContactSubmissions = async () => {
 };
 
 // New function to update submission status
-export const updateSubmissionStatus = async (id: string, status: string) => {
+export const updateSubmissionStatus = async (id: string, status: SubmissionStatus) => {
   if (!supabase) {
     console.warn('Supabase client not available, returning mock success');
     return true;
   }
   
   try {
+    // Convert string id to number for Supabase
+    const numericId = parseInt(id, 10);
+    
     const { error } = await supabase
       .from('contact_submissions')
       .update({ status })
-      .eq('id', id);
+      .eq('id', numericId);
       
     if (error) throw error;
     
@@ -157,10 +164,13 @@ export const deleteContactSubmission = async (id: string) => {
   }
   
   try {
+    // Convert string id to number for Supabase
+    const numericId = parseInt(id, 10);
+    
     const { error } = await supabase
       .from('contact_submissions')
       .delete()
-      .eq('id', id);
+      .eq('id', numericId);
       
     if (error) throw error;
     
