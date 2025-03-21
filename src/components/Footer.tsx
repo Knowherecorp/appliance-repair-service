@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="inline-block mb-6">
-              <h2 className="font-heading text-2xl font-bold text-primary">HomeFix</h2>
+              <h2 className="font-heading text-2xl font-bold text-primary">Appliance Care</h2>
             </Link>
             <p className="text-foreground/70 mb-6">
               Professional appliance repair services you can trust. Fast, reliable, and guaranteed.

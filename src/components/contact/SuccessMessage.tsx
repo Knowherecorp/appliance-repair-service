@@ -19,7 +19,7 @@ const SuccessMessage = ({ resetForm }: SuccessMessageProps) => {
           </div>
           <h3 className="text-2xl font-bold mb-4">Request Submitted</h3>
           <p className="text-foreground/70 mb-6">
-            Thank you for contacting HomeFix. Our team will reach out to you shortly to confirm your appointment.
+            Thank you for contacting Appliance Care. Our team will reach out to you shortly to confirm your appointment.
           </p>
           <Button 
             onClick={resetForm}

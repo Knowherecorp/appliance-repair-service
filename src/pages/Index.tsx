@@ -67,38 +67,21 @@ const Index = () => {
             "name": "Appliance Care Appliance Repair",
             "image": "https://www.customercareservice.co/logo.jpg",
             "url": "https://www.customercareservice.co",
-            "telephone": "(888) 555-HELP",
+            "telephone": "1800 833 2040",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "123 Repair Avenue, Suite 101",
-              "addressLocality": "New York",
-              "addressRegion": "NY",
-              "postalCode": "10001",
-              "addressCountry": "US"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 40.7128,
-              "longitude": -74.0060
+              "addressLocality": "Bengalore",
+              "addressRegion": "Karnataka",
+              "postalCode": "560070",
+              "addressCountry": "INDIA"
             },
             "openingHoursSpecification": [
               {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                 "opens": "08:00",
                 "closes": "20:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00",
-                "closes": "17:00"
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Sunday",
-                "opens": "10:00",
-                "closes": "16:00"
               }
             ],
             "sameAs": [

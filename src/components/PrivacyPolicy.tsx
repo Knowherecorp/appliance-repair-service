@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="prose prose-lg max-w-none">
             <p>
-              At HomeFix, we take your privacy seriously. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our website or services.
+              At Appliance Care, we take your privacy seriously. This Privacy Policy describes how we collect, use, and disclose your personal information when you use our website or services.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Information We Collect</h2>
@@ -108,11 +108,11 @@ const PrivacyPolicy = () => {
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
             <p className="my-4">
-              HomeFix<br />
-              123 Repair Avenue, Suite 101<br />
-              New York, NY 10001<br />
-              Email: privacy@homefix.com<br />
-              Phone: (888) 555-HELP
+              Appliance Care<br />
+              Shop 2, 96, Banashankari 2nd Stage<br />
+              Bangalore, 560070 <br />
+              Email: hello@customercareservice.co<br />
+              Phone: 1800-833-2040
             </p>
           </div>
         </div>

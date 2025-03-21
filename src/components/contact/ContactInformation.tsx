@@ -18,9 +18,9 @@ const ContactInformation = () => {
               <div>
                 <h4 className="font-medium mb-1">Address</h4>
                 <p className="text-foreground/70">
-                  123 Repair Avenue<br />
-                  Suite 101<br />
-                  New York, NY 10001
+                  Shop 2, 96, Banashankari<br /> 
+                  2nd Stage<br />
+                  Bangalore, 560070
                 </p>
               </div>
             </div>
@@ -32,8 +32,8 @@ const ContactInformation = () => {
               <div>
                 <h4 className="font-medium mb-1">Phone</h4>
                 <p className="text-foreground/70">
-                  <a href="tel:888-555-HELP" className="hover:text-primary">
-                    (888) 555-HELP
+                  <a href="tel:18008332040" className="hover:text-primary">
+                  1800-833-2040
                   </a>
                 </p>
               </div>
@@ -46,8 +46,8 @@ const ContactInformation = () => {
               <div>
                 <h4 className="font-medium mb-1">Email</h4>
                 <p className="text-foreground/70">
-                  <a href="mailto:service@homefix.com" className="hover:text-primary">
-                    service@homefix.com
+                  <a href="mailto:hello@customercareservice.co" className="hover:text-primary">
+                    hello@customercareservice.co
                   </a>
                 </p>
               </div>
@@ -77,7 +77,7 @@ const ContactInformation = () => {
             Need urgent appliance repair? We offer emergency service for critical situations.
           </p>
           <Button variant="secondary" asChild className="w-full">
-            <a href="tel:888-555-HELP">Call Our Emergency Line</a>
+            <a href="tel:18008332040">Call Our Emergency Line</a>
           </Button>
         </CardContent>
       </Card>

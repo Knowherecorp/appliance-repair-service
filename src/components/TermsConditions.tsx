@@ -22,12 +22,12 @@ const TermsConditions = () => {
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="prose prose-lg max-w-none">
             <p>
-              Welcome to HomeFix. These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.
+              Welcome to Appliance Care. These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Services</h2>
             <p>
-              HomeFix provides repair services for home appliances, including washing machines, refrigerators, air conditioners, televisions, and microwaves. Our services include:
+              Appliance Care provides repair services for home appliances, including washing machines, refrigerators, air conditioners, televisions, and microwaves. Our services include:
             </p>
             <ul className="list-disc pl-8 my-4 space-y-2">
               <li>Diagnostic assessment of appliance issues</li>
@@ -68,7 +68,7 @@ const TermsConditions = () => {
 
             <h2 className="text-2xl font-bold mb-4">Warranties and Guarantees</h2>
             <p>
-              HomeFix provides the following guarantees:
+              Appliance Care provides the following guarantees:
             </p>
             <ul className="list-disc pl-8 my-4 space-y-2">
               <li>90-day warranty on all parts installed by our technicians</li>
@@ -83,7 +83,7 @@ const TermsConditions = () => {
 
             <h2 className="text-2xl font-bold mb-4">Limitation of Liability</h2>
             <p>
-              HomeFix is not liable for:
+              Appliance Care is not liable for:
             </p>
             <ul className="list-disc pl-8 my-4 space-y-2">
               <li>Pre-existing conditions of appliances</li>
@@ -116,11 +116,11 @@ const TermsConditions = () => {
               If you have any questions about these Terms, please contact us at:
             </p>
             <p className="my-4">
-              HomeFix<br />
-              123 Repair Avenue, Suite 101<br />
-              New York, NY 10001<br />
-              Email: legal@homefix.com<br />
-              Phone: (888) 555-HELP
+              Appliance Care<br />
+              Shop 2, 96, Banashankari 2nd Stage<br />
+              Bangalore, 560070 <br />
+              Email: hello@customercareservice.co<br />
+              Phone: 1800-833-2040
             </p>
           </div>
         </div>

@@ -35,8 +35,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="font-heading text-2xl font-bold text-primary">
-          HomeFix
+        <a href="/" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="font-heading text-2xl font-bold text-primary">
+          Appliance Care
         </a>
 
         {/* Desktop Navigation */}
@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4">
           <div className="flex items-center text-primary">
             <Phone size={18} className="mr-2" />
-            <span className="font-medium">888-555-HELP</span>
+            <span className="font-medium">1800-833-2040</span>
           </div>
           <Button onClick={() => scrollToSection('contact')}>
             Get a Quote
@@ -116,7 +116,7 @@ const Navbar = () => {
           </button>
           <div className="flex items-center text-primary py-2">
             <Phone size={18} className="mr-2" />
-            <span className="font-medium">888-555-HELP</span>
+            <span className="font-medium">1800-833-2040</span>
           </div>
           <Button 
             className="w-full"

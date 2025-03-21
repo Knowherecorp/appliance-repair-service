@@ -117,18 +117,6 @@ const AdminLogin = () => {
             >
               {isLoading ? "Logging in..." : "Log In"}
             </Button>
-
-            <div className="text-center">
-              <Button 
-                type="button" 
-                variant="ghost" 
-                size="sm" 
-                onClick={fillDemoCredentials}
-                className="text-xs text-muted-foreground hover:text-primary"
-              >
-                Use Demo Credentials
-              </Button>
-            </div>
           </form>
         </CardContent>
         

@@ -96,7 +96,7 @@ const Hero = () => {
                 <a href="#contact">Schedule Service</a>
               </Button>
               <Button size="lg" variant="outline" asChild className="font-medium">
-                <a href="tel:888-555-HELP">Call Us Now</a>
+                <a href="tel:18008332040">Call Us Now</a>
               </Button>
             </motion.div>
           </motion.div>

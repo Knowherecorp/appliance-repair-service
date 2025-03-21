@@ -5,36 +5,36 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Jennifer Anderson",
-    location: "New York, NY",
+    name: "Ganga Iyer",
+    location: "Bhanashankari",
     text: "The technician arrived on time and fixed my washing machine in under an hour. Very professional and knowledgeable. Highly recommended!",
     rating: 5,
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
-    name: "Michael Thompson",
-    location: "Chicago, IL",
+    name: "Mayank Kachchi",
+    location: "Electronic City",
     text: "I was impressed with how quickly they diagnosed the issue with my refrigerator. Fair pricing and excellent communication throughout the process.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
-    name: "Sarah Wilson",
-    location: "Los Angeles, CA",
+    name: "Sarah Dadsena",
+    location: "JP Nagar",
     text: "After trying to fix my microwave myself, I called HomeFix. Their technician not only repaired it but also showed me what went wrong. Great service!",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
-    name: "Robert Davis",
-    location: "Houston, TX",
+    name: "Rohan Rao",
+    location: "Shivaji Nagar",
     text: "My AC stopped working on the hottest day of the year. HomeFix sent someone within hours and had it fixed by evening. Worth every penny!",
     rating: 5,
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
-    name: "Emily Johnson",
-    location: "Seattle, WA",
+    name: "Lilly",
+    location: "Jayanagar",
     text: "I've used HomeFix three times now for different appliances. Consistently excellent service, fair prices, and reliable repairs. They're my go-to service.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"

@@ -16,14 +16,14 @@ const services = [
     description: "From cooling issues to ice maker problems, our technicians can get your refrigerator running efficiently again.",
     icon: Refrigerator,
     color: "bg-green-50 text-green-600",
-    image: "https://images.unsplash.com/photo-1594794312433-45f56cd1c0fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "https://images.unsplash.com/photo-1536353284924-9220c464e262?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     title: "AC Repair",
     description: "Restore comfort to your home with our AC repair services for cooling performance issues, strange noises, and more.",
     icon: AirVent,
     color: "bg-purple-50 text-purple-600",
-    image: "https://images.unsplash.com/photo-1581275299059-c9d73fc58199?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "https://img.freepik.com/free-photo/hand-checking-air-conditioner-room_157027-3103.jpg?t=st=1742588556~exp=1742592156~hmac=2a641bd9e35129e6908005061db9c88530b5c99f88ef4529f6abfddae0b29635&w=1380"
   },
   {
     title: "TV Repair",
@@ -37,7 +37,7 @@ const services = [
     description: "Don't replace your microwave—repair it! We fix heating issues, turntable problems, and electrical faults.",
     icon: Microwave,
     color: "bg-amber-50 text-amber-600",
-    image: "https://images.unsplash.com/photo-1574269906006-935592e8100e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "https://img.freepik.com/free-photo/rustic-oven-heats-bowl-healthy-meal-generated-by-ai_188544-17533.jpg?t=st=1742589132~exp=1742592732~hmac=199b13041a0734dfa0d263b9d720ef31206f285a796fc9328237215d1ffe5031&w=1060"
   }
 ];
 
