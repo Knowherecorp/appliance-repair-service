@@ -50,25 +50,25 @@ const SonyTVTestimonials = () => {
 
   const testimonials = [
     {
-      name: "Jennifer Davis",
-      title: "Homeowner",
+      name: "Jagdish",
+      title: "JP Nagar",
       testimonial: "My 65\" Sony Bravia had a blank screen issue. The technician arrived the same day and fixed it in under an hour. Excellent service!",
       rating: 5,
-      image: "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=996&t=st=1742657467~exp=1742658067~hmac=de3a0625e7b8d9e486f0b91e0aa7ed77d5fd55452a35bd6b747a02a843258733"
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-profile-picture-business-profile-woman-suitable-social-media-profiles-icons-screensavers-as-templatex9_719432-1339.jpg?w=740"
     },
     {
-      name: "Robert Johnson",
-      title: "Business Owner",
+      name: "Rohan",
+      title: "Bhanashankari",
       testimonial: "We have multiple Sony displays in our office that needed repair. The team was professional, timely, and fixed all issues. Highly recommended!",
       rating: 5,
-      image: "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=996&t=st=1742657513~exp=1742658113~hmac=a5b5cb0f7b3d88b8e12ddbe9d9e5b78e8c4f5d1b0485b6a3bd67debae2683e73"
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-profile-picture-business-profile-woman-suitable-social-media-profiles-icons-screensavers-as-templatex9_719432-1339.jpg?w=740"
     },
     {
-      name: "Sarah Martinez",
-      title: "Homeowner",
+      name: "Sarah",
+      title: "Bengalore",
       testimonial: "My Sony OLED had color issues after a power surge. The technician diagnosed the problem quickly and had the replacement parts with him. Great service!",
       rating: 5,
-      image: "https://img.freepik.com/free-photo/woman-with-curly-hair-looking-camera_23-2147768589.jpg?w=996&t=st=1742657552~exp=1742658152~hmac=8883c8de60dadc0b677b8f2857c38b5d08bd00c8f66a7c73097f1731767ffe56"
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-profile-picture-business-profile-woman-suitable-social-media-profiles-icons-screensavers-as-templatex9_719432-1339.jpg?w=740"
     }
   ];
 

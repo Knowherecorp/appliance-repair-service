@@ -60,7 +60,7 @@ const SonyTVNavbar = () => {
             Testimonials
           </button>
           <button 
-            onClick={() => scrollToSection('appointment')}
+            onClick={() => scrollToSection('contact')}
             className="font-medium text-foreground/80 hover:text-primary transition-colors"
           >
             Contact

@@ -53,37 +53,37 @@ const SonyTVServices = () => {
       title: "Sony Bravia Repair",
       description: "Expert repair for all Sony Bravia LCD, LED and OLED models with screen issues, power problems, or software glitches.",
       icon: <Tv className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/close-up-hand-repairing-television_23-2149063485.jpg?w=996&t=st=1742657078~exp=1742657678~hmac=9bca28b76a85c1ece6cc7bfaea23ee38ac702f9eeeb1c5bad0ed02d34387a4d8"
+      image: "../../1.webp"
     },
     {
       title: "Sony 4K TV Repair",
       description: "Specialized repair services for Sony 4K Ultra HD TVs including resolution issues, smart features, and connectivity problems.",
       icon: <Monitor className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/closeup-repair-service-worker-uniform-puts-new-smart-tv-wall-mount_482257-27232.jpg?w=996&t=st=1742657113~exp=1742657713~hmac=afd5a37f45aeeaa6c5a5e2a1de6f3f41afc0e095a29c5cc809ad8a1c9c6ac39c"
+      image: "../../2.jpg"
     },
     {
       title: "Sony Smart TV Repair",
       description: "Fix for Sony Android TV issues including app crashes, slow performance, network connectivity, and software updates.",
       icon: <Settings className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/repairman-working-broken-tv-set_329181-12472.jpg?w=996&t=st=1742657149~exp=1742657749~hmac=3d4eb8ecce9d82eb22a3e12a5e9aab8ac559e57f9e8adbf3c45b02d3c6eb84ca"
+      image: "../../3.jpg"
     },
     {
       title: "Sony OLED TV Repair",
       description: "Specialized repair for Sony OLED TVs addressing burn-in issues, color problems, and panel replacements with precision.",
       icon: <Wrench className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/multimedia-equipment-installation-by-technicians_23-2149058851.jpg?w=996&t=st=1742657189~exp=1742657789~hmac=aea68f6e86f979e4cb6e9e94c8972efb1dd6fac12ed5b85e7d2a4e93d31aabe6"
+      image: "../../4.jpg"
     },
     {
       title: "Sony TV Power Issues",
       description: "Diagnose and repair power-related problems including TVs that won't turn on, unexpected shutdowns, or standby light issues.",
       icon: <PlugZap className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176703.jpg?w=996&t=st=1742657250~exp=1742657850~hmac=09ccdf7ce4bfd91f1a06acc46d2be10d42d359621f9be4dd65b5cb5972bf46be"
+      image: "../../5.jpg"
     },
     {
       title: "Sony TV Screen Repair",
       description: "Fix for screen issues including cracked displays, lines on screen, discoloration, flickering, or dead pixels on Sony TVs.",
       icon: <ScanLine className="h-10 w-10 text-primary" />,
-      image: "https://img.freepik.com/free-photo/close-up-hand-repairing-television_23-2149063480.jpg?w=996&t=st=1742657286~exp=1742657886~hmac=e5cc30a7af39c21903a3f5d2fe7e7ea2a5cab7f68bff35b28ae214b3ec6f1b0c"
+      image: "../../6.jpg"
     }
   ];
 
