@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
-import { Tv, TvMini, Settings, Wrench, PlugZap, ScanLine } from 'lucide-react';
+import { Tv, Monitor, Settings, Wrench, PlugZap, ScanLine } from 'lucide-react';
 
 const SonyTVServices = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -58,7 +58,7 @@ const SonyTVServices = () => {
     {
       title: "Sony 4K TV Repair",
       description: "Specialized repair services for Sony 4K Ultra HD TVs including resolution issues, smart features, and connectivity problems.",
-      icon: <TvMini className="h-10 w-10 text-primary" />,
+      icon: <Monitor className="h-10 w-10 text-primary" />,
       image: "https://img.freepik.com/free-photo/closeup-repair-service-worker-uniform-puts-new-smart-tv-wall-mount_482257-27232.jpg?w=996&t=st=1742657113~exp=1742657713~hmac=afd5a37f45aeeaa6c5a5e2a1de6f3f41afc0e095a29c5cc809ad8a1c9c6ac39c"
     },
     {
