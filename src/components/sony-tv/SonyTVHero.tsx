@@ -109,7 +109,7 @@ const SonyTVHero = () => {
             <div className="relative bg-white rounded-2xl shadow-elevation overflow-hidden h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-blue-100/30" aria-hidden="true"></div>
               <img 
-                src="https://img.freepik.com/free-photo/installing-tv_1098-17902.jpg?t=st=1742641581~exp=1742645181~hmac=e5d60db6f574118e356eac8ac65d64d8ab0b6155eaaf9f02947936aa65689dfc&w=996" 
+                src="../../main.jpg" 
                 alt="Technician repairing a Sony TV" 
                 className="w-full h-full object-cover"
               />
