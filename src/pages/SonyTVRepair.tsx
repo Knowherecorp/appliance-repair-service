@@ -1,8 +1,8 @@
 
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import SonyTVNavbar from "@/components/sony-tv/SonyTVNavbar";
+import SonyTVFooter from "@/components/sony-tv/SonyTVFooter";
 import SonyTVHero from "@/components/sony-tv/SonyTVHero";
 import SonyTVServices from "@/components/sony-tv/SonyTVServices";
 import SonyTVAppointmentForm from "@/components/sony-tv/SonyTVAppointmentForm";
@@ -24,7 +24,7 @@ const SonyTVRepair = () => {
       </Helmet>
 
       <div className="flex min-h-screen flex-col">
-        <Navbar />
+        <SonyTVNavbar />
         
         <main className="flex-1">
           <motion.div
@@ -41,7 +41,7 @@ const SonyTVRepair = () => {
           </motion.div>
         </main>
         
-        <Footer />
+        <SonyTVFooter />
       </div>
     </>
   );
