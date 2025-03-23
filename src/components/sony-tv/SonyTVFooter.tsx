@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator";
 import { 
@@ -90,11 +91,11 @@ const SonyTVFooter = () => {
               </li>
               <li>
                 <Link to="/sony-tv-terms" className="text-foreground/70 hover:text-primary">
-                  Sony TV Terms
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-foreground/70 hover:text-primary">
+                <Link to="/sony-tv-privacy" className="text-foreground/70 hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
@@ -130,7 +131,7 @@ const SonyTVFooter = () => {
             &copy; {currentYear} TV Repair. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link to="/privacy" className="text-foreground/60 hover:text-primary">
+            <Link to="/sony-tv-privacy" className="text-foreground/60 hover:text-primary">
               Privacy Policy
             </Link>
             <Link to="/sony-tv-terms" className="text-foreground/60 hover:text-primary">

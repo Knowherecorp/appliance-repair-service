@@ -16,6 +16,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
 import SonyTVRepair from "./pages/SonyTVRepair";
 import SonyTVTermsConditions from "./pages/SonyTVTermsConditions";
+import SonyTVPrivacyPolicy from "./pages/SonyTVPrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => {
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/sony-tv-repair" element={<SonyTVRepair />} />
                 <Route path="/sony-tv-terms" element={<SonyTVTermsConditions />} />
+                <Route path="/sony-tv-privacy" element={<SonyTVPrivacyPolicy />} />
                 <Route 
                   path="/admin/dashboard" 
                   element={
