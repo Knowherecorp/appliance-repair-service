@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SonyTVAppointmentModal from './SonyTVAppointmentModal';
 
 const SonyTVNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,9 +73,9 @@ const SonyTVNavbar = () => {
             <Phone size={18} className="mr-2" />
             <span className="font-medium">1800-833-2040</span>
           </div>
-          <Button onClick={() => scrollToSection('appointment')}>
-            Get a Quote
-          </Button>
+          <SonyTVAppointmentModal 
+            trigger={<Button>Get a Quote</Button>}
+          />
         </div>
 
         {/* Mobile Menu Button */}
@@ -118,12 +119,9 @@ const SonyTVNavbar = () => {
             <Phone size={18} className="mr-2" />
             <span className="font-medium">1800-833-2040</span>
           </div>
-          <Button 
-            className="w-full"
-            onClick={() => scrollToSection('appointment')}
-          >
-            Get a Quote
-          </Button>
+          <SonyTVAppointmentModal 
+            trigger={<Button className="w-full">Get a Quote</Button>}
+          />
         </div>
       )}
     </nav>

@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,7 +14,11 @@ import { FormData, submitContactForm } from "@/utils/api";
 import { motion } from 'framer-motion';
 import { Tv, Zap, Volume2, Image, HardDrive, Wifi } from "lucide-react";
 
-const SonyTVAppointmentForm = () => {
+interface SonyTVAppointmentFormProps {
+  inModal?: boolean;
+}
+
+const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) => {
   const { toast } = useToast();
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -32,6 +35,12 @@ const SonyTVAppointmentForm = () => {
   });
   
   useEffect(() => {
+    // If rendered in a modal, set visibility to true immediately
+    if (inModal) {
+      setIsVisible(true);
+      return;
+    }
+    
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -50,7 +59,7 @@ const SonyTVAppointmentForm = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [inModal]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -117,6 +126,205 @@ const SonyTVAppointmentForm = () => {
     }
   };
 
+  // The form content to be used in both modal and section
+  const formContent = (
+    <>
+      {submitted ? (
+        <Card className={`border-none ${!inModal && 'shadow-card'} overflow-hidden`}>
+          <CardContent className="p-8 text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
+            <p className="text-lg text-foreground/70 mb-8">
+              Your Sony TV repair request has been submitted successfully. One of our specialists will contact you soon to confirm your appointment.
+            </p>
+            <Button onClick={resetForm}>
+              Submit Another Request
+            </Button>
+          </CardContent>
+        </Card>
+      ) : (
+        <Card className={`border-none ${!inModal && 'shadow-card'} overflow-hidden`}>
+          <CardContent className="p-8">
+            {inModal && (
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
+                  Schedule Your Sony TV Repair
+                </h2>
+                <p className="text-foreground/70">
+                  Fill out the form below and our Sony TV repair specialists will get back to you promptly
+                </p>
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Full Name
+                  </label>
+                  <Input 
+                    id="name"
+                    type="text"
+                    placeholder="Your full name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-medium">
+                    Phone Number
+                  </label>
+                  <Input 
+                    id="phone"
+                    type="tel"
+                    placeholder="Your phone number"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email Address
+                  </label>
+                  <Input 
+                    id="email"
+                    type="email"
+                    placeholder="Your email address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="service" className="text-sm font-medium">
+                    Sony TV Model
+                  </label>
+                  <Select onValueChange={(value) => handleSelectChange('service', value)} required>
+                    <SelectTrigger id="service">
+                      <SelectValue placeholder="Select your Sony TV model" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white">
+                      <SelectItem value="sony-bravia">Sony Bravia</SelectItem>
+                      <SelectItem value="sony-oled">Sony OLED</SelectItem>
+                      <SelectItem value="sony-led">Sony LED</SelectItem>
+                      <SelectItem value="sony-4k">Sony 4K Ultra HD</SelectItem>
+                      <SelectItem value="sony-android">Sony Android TV</SelectItem>
+                      <SelectItem value="sony-other">Other Sony TV</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="date" className="text-sm font-medium">
+                    Preferred Date
+                  </label>
+                  <Input 
+                    id="date"
+                    type="date"
+                    min={new Date().toISOString().split('T')[0]}
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="time" className="text-sm font-medium">
+                    Preferred Time
+                  </label>
+                  <Select onValueChange={(value) => handleSelectChange('time', value)} required>
+                    <SelectTrigger id="time">
+                      <SelectValue placeholder="Select time slot" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white">
+                      <SelectItem value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</SelectItem>
+                      <SelectItem value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</SelectItem>
+                      <SelectItem value="Evening (4PM - 8PM)">Evening (4PM - 8PM)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              
+              <div className="space-y-2 mb-8">
+                <label htmlFor="problem" className="text-sm font-medium">
+                  TV Problem
+                </label>
+                <Select onValueChange={(value) => handleSelectChange('problem', value)} required>
+                  <SelectTrigger id="problem">
+                    <SelectValue placeholder="Select the issue with your Sony TV" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white">
+                    <SelectItem value="No power or won't turn on">
+                      <div className="flex items-center gap-2">
+                        <Zap className="h-4 w-4" />
+                        <span>No power or won't turn on</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Black screen but has sound">
+                      <div className="flex items-center gap-2">
+                        <Image className="h-4 w-4" />
+                        <span>Black screen but has sound</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Picture issues (distorted, lines, pixels)">
+                      <div className="flex items-center gap-2">
+                        <Tv className="h-4 w-4" />
+                        <span>Picture issues (distorted, lines, pixels)</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Sound issues or no audio">
+                      <div className="flex items-center gap-2">
+                        <Volume2 className="h-4 w-4" />
+                        <span>Sound issues or no audio</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Smart TV features not working">
+                      <div className="flex items-center gap-2">
+                        <Wifi className="h-4 w-4" />
+                        <span>Smart TV features not working</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="HDMI or input problems">
+                      <div className="flex items-center gap-2">
+                        <HardDrive className="h-4 w-4" />
+                        <span>HDMI or input problems</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Other issue">
+                      <span>Other issue</span>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Schedule Sony TV Repair"}
+              </Button>
+              
+              <p className="text-xs text-foreground/60 text-center mt-4">
+                By submitting this form, you agree to our <a href="/sony-tv-terms" className="text-primary hover:underline">Terms of Service</a> and <a href="/sony-tv-privacy" className="text-primary hover:underline">Privacy Policy</a>.
+              </p>
+            </form>
+          </CardContent>
+        </Card>
+      )}
+    </>
+  );
+
+  // If in modal, just return the form content
+  if (inModal) {
+    return <div className="px-2 py-2">{formContent}</div>;
+  }
+
+  // Otherwise render as a full section
   return (
     <section ref={sectionRef} id="appointment" className="py-20 bg-blue-50">
       <div className="container mx-auto px-6">
@@ -144,183 +352,7 @@ const SonyTVAppointmentForm = () => {
           variants={fadeUpVariants}
         >
           <div className="lg:col-span-8 lg:col-start-3">
-            {submitted ? (
-              <Card className="border-none shadow-card overflow-hidden">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
-                  <p className="text-lg text-foreground/70 mb-8">
-                    Your Sony TV repair request has been submitted successfully. One of our specialists will contact you soon to confirm your appointment.
-                  </p>
-                  <Button onClick={resetForm}>
-                    Submit Another Request
-                  </Button>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card className="border-none shadow-card overflow-hidden">
-                <CardContent className="p-8">
-                  <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                      <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-medium">
-                          Full Name
-                        </label>
-                        <Input 
-                          id="name"
-                          type="text"
-                          placeholder="Your full name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <label htmlFor="phone" className="text-sm font-medium">
-                          Phone Number
-                        </label>
-                        <Input 
-                          id="phone"
-                          type="tel"
-                          placeholder="Your phone number"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-medium">
-                          Email Address
-                        </label>
-                        <Input 
-                          id="email"
-                          type="email"
-                          placeholder="Your email address"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <label htmlFor="service" className="text-sm font-medium">
-                          Sony TV Model
-                        </label>
-                        <Select onValueChange={(value) => handleSelectChange('service', value)} required>
-                          <SelectTrigger id="service">
-                            <SelectValue placeholder="Select your Sony TV model" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-white">
-                            <SelectItem value="sony-bravia">Sony Bravia</SelectItem>
-                            <SelectItem value="sony-oled">Sony OLED</SelectItem>
-                            <SelectItem value="sony-led">Sony LED</SelectItem>
-                            <SelectItem value="sony-4k">Sony 4K Ultra HD</SelectItem>
-                            <SelectItem value="sony-android">Sony Android TV</SelectItem>
-                            <SelectItem value="sony-other">Other Sony TV</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <label htmlFor="date" className="text-sm font-medium">
-                          Preferred Date
-                        </label>
-                        <Input 
-                          id="date"
-                          type="date"
-                          min={new Date().toISOString().split('T')[0]}
-                          value={formData.date}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <label htmlFor="time" className="text-sm font-medium">
-                          Preferred Time
-                        </label>
-                        <Select onValueChange={(value) => handleSelectChange('time', value)} required>
-                          <SelectTrigger id="time">
-                            <SelectValue placeholder="Select time slot" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-white">
-                            <SelectItem value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</SelectItem>
-                            <SelectItem value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</SelectItem>
-                            <SelectItem value="Evening (4PM - 8PM)">Evening (4PM - 8PM)</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2 mb-8">
-                      <label htmlFor="problem" className="text-sm font-medium">
-                        TV Problem
-                      </label>
-                      <Select onValueChange={(value) => handleSelectChange('problem', value)} required>
-                        <SelectTrigger id="problem">
-                          <SelectValue placeholder="Select the issue with your Sony TV" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white">
-                          <SelectItem value="No power or won't turn on">
-                            <div className="flex items-center gap-2">
-                              <Zap className="h-4 w-4" />
-                              <span>No power or won't turn on</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="Black screen but has sound">
-                            <div className="flex items-center gap-2">
-                              <Image className="h-4 w-4" />
-                              <span>Black screen but has sound</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="Picture issues (distorted, lines, pixels)">
-                            <div className="flex items-center gap-2">
-                              <Tv className="h-4 w-4" />
-                              <span>Picture issues (distorted, lines, pixels)</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="Sound issues or no audio">
-                            <div className="flex items-center gap-2">
-                              <Volume2 className="h-4 w-4" />
-                              <span>Sound issues or no audio</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="Smart TV features not working">
-                            <div className="flex items-center gap-2">
-                              <Wifi className="h-4 w-4" />
-                              <span>Smart TV features not working</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="HDMI or input problems">
-                            <div className="flex items-center gap-2">
-                              <HardDrive className="h-4 w-4" />
-                              <span>HDMI or input problems</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="Other issue">
-                            <span>Other issue</span>
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-                      {isSubmitting ? "Submitting..." : "Schedule Sony TV Repair"}
-                    </Button>
-                    
-                    <p className="text-xs text-foreground/60 text-center mt-4">
-                      By submitting this form, you agree to our <a href="/sony-tv-terms" className="text-primary hover:underline">Terms of Service</a> and <a href="/sony-tv-privacy" className="text-primary hover:underline">Privacy Policy</a>.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
-            )}
+            {formContent}
           </div>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
 import { CheckCircle, Tv } from 'lucide-react';
+import SonyTVAppointmentModal from './SonyTVAppointmentModal';
 
 const SonyTVHero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,9 +92,13 @@ const SonyTVHero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button size="lg" asChild className="font-medium">
-                <a href="#appointment">Schedule Repair</a>
-              </Button>
+              <SonyTVAppointmentModal
+                trigger={
+                  <Button size="lg" className="font-medium">
+                    Schedule Repair
+                  </Button>
+                }
+              />
               <Button size="lg" variant="outline" asChild className="font-medium">
                 <a href="tel:18008332040">Call Us Now</a>
               </Button>
