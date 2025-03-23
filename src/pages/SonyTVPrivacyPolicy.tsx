@@ -123,9 +123,8 @@ const SonyTVPrivacyPolicy = () => {
               </p>
               <p className="my-4">
                 TV Repair<br />
-                Shop 2, 96, Banashankari 2nd Stage<br />
-                Bangalore, 560070 <br />
-                Email: hello@tvrepair.co<br />
+                Bangalore<br />
+                Email: hello@customercareservice.co<br />
                 Phone: 1800-833-2040
               </p>
             </div>

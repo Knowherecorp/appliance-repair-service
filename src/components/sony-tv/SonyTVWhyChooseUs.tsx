@@ -55,18 +55,18 @@ const SonyTVWhyChooseUs = () => {
     },
     {
       icon: <Award className="h-10 w-10 p-2 bg-blue-100 text-primary rounded-full" />,
-      title: "Sony Certified Technicians",
-      description: "Our repair specialists are certified to work on Sony products and stay updated with the latest Sony TV technologies and repair methods."
+      title: "Certified Technicians",
+      description: "Our repair specialists are certified to work on All type of TV's and stay updated with the latest TV technologies and repair methods."
     },
     {
       icon: <ShieldCheck className="h-10 w-10 p-2 bg-blue-100 text-primary rounded-full" />,
       title: "90-Day Warranty",
-      description: "We stand behind our work with a 90-day parts and labor warranty on all Sony TV repairs for your peace of mind."
+      description: "We stand behind our work with a 90-day parts and labor warranty on all TV repairs for your peace of mind."
     },
     {
       icon: <Check className="h-10 w-10 p-2 bg-blue-100 text-primary rounded-full" />,
-      title: "Genuine Sony Parts",
-      description: "We use only genuine Sony replacement parts to ensure optimal performance and longevity for your repaired TV."
+      title: "Genuine TV Parts",
+      description: "We use only genuine TV replacement parts to ensure optimal performance and longevity for your repaired TV."
     }
   ];
 

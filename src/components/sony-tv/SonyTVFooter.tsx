@@ -106,9 +106,7 @@ const SonyTVFooter = () => {
             <h3 className="font-bold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-3">
               <li className="text-foreground/70">
-                Shop 2, 96, Banashankari<br />
-                2nd Stage<br />
-                Bangalore, 560070
+                Bangalore
               </li>
               <li>
                 <a href="tel:18008332040" className="text-foreground/70 hover:text-primary">
@@ -116,8 +114,8 @@ const SonyTVFooter = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@tvrepair.co" className="text-foreground/70 hover:text-primary">
-                  hello@tvrepair.co
+                <a href="mailto:hello@customercareservice.co" className="text-foreground/70 hover:text-primary">
+                  hello@customercareservice.co
                 </a>
               </li>
             </ul>

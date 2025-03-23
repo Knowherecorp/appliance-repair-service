@@ -53,7 +53,7 @@ const SonyTVServices = () => {
       title: "Sony Bravia Repair",
       description: "Expert repair for all Sony Bravia LCD, LED and OLED models with screen issues, power problems, or software glitches.",
       icon: <Tv className="h-10 w-10 text-primary" />,
-      image: "../../1.webp"
+      image: "../../1.jpg"
     },
     {
       title: "Sony 4K TV Repair",
@@ -65,13 +65,13 @@ const SonyTVServices = () => {
       title: "Sony Smart TV Repair",
       description: "Fix for Sony Android TV issues including app crashes, slow performance, network connectivity, and software updates.",
       icon: <Settings className="h-10 w-10 text-primary" />,
-      image: "../../3.jpg"
+      image: "../../3.webp"
     },
     {
       title: "Sony OLED TV Repair",
       description: "Specialized repair for Sony OLED TVs addressing burn-in issues, color problems, and panel replacements with precision.",
       icon: <Wrench className="h-10 w-10 text-primary" />,
-      image: "../../4.jpg"
+      image: "../../4.webp"
     },
     {
       title: "Sony TV Power Issues",
@@ -83,7 +83,7 @@ const SonyTVServices = () => {
       title: "Sony TV Screen Repair",
       description: "Fix for screen issues including cracked displays, lines on screen, discoloration, flickering, or dead pixels on Sony TVs.",
       icon: <ScanLine className="h-10 w-10 text-primary" />,
-      image: "../../6.jpg"
+      image: "../../6.webp"
     }
   ];
 
