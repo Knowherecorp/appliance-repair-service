@@ -1,8 +1,7 @@
 [[redirects]]
-  from = "https://customercareservice.co/admin*"
-  to = "https://customercareservice.co/admin"
-  status = 301
-  force = true
+from = "/*"
+to = "/admin"
+status = 200
 
 [[redirects]]
   from = "/sony-tv-repair"
