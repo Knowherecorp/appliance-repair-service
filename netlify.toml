@@ -1,5 +1,5 @@
 [[redirects]]
-from = "/*"
+from = "as/*"
 to = "/admin"
 status = 200
 
