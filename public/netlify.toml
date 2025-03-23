@@ -1,9 +1,9 @@
 [[redirects]]
   from = "/admin"
   to = "/admin"
-  status = 301
+  status = 200
 
 [[redirects]]
   from = "/sony-tv-repair"
   to = "/sony-tv-repair"
-  status = 301
+  status = 200
