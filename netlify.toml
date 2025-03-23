@@ -1,6 +1,6 @@
 [[redirects]]
   from = "https://customercareservice.co/admin*"
-  to = "/admin"
+  to = "https://customercareservice.co/admin"
   status = 301
   force = true
 
