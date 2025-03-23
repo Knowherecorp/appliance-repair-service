@@ -8,6 +8,7 @@ import SonyTVServices from "@/components/sony-tv/SonyTVServices";
 import SonyTVAppointmentForm from "@/components/sony-tv/SonyTVAppointmentForm";
 import SonyTVWhyChooseUs from "@/components/sony-tv/SonyTVWhyChooseUs";
 import SonyTVTestimonials from "@/components/sony-tv/SonyTVTestimonials";
+import SonyTVFloatingCallButton from "@/components/sony-tv/SonyTVFloatingCallButton";
 
 const SonyTVRepair = () => {
   return (
@@ -42,6 +43,7 @@ const SonyTVRepair = () => {
         </main>
         
         <SonyTVFooter />
+        <SonyTVFloatingCallButton />
       </div>
     </>
   );
