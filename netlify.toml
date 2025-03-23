@@ -1,10 +1,5 @@
 [[redirects]]
-from = "as/*"
+from = "/admin*"
 to = "/admin"
 status = 200
-
-[[redirects]]
-  from = "/sony-tv-repair"
-  to = "/sony-tv-repair"
-  status = 301
-  force = true
+force = true
