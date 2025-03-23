@@ -7,3 +7,4 @@
   from = "/sony-tv-repair"
   to = "/sony-tv-repair"
   status = 301
+  force = true
