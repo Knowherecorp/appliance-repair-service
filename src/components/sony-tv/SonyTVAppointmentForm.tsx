@@ -4,7 +4,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { 
   Select, 
   SelectContent, 
@@ -14,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { FormData, submitContactForm } from "@/utils/api";
 import { motion } from 'framer-motion';
+import { Tv, Zap, Volume2, Image, HardDrive, Wifi } from "lucide-react";
 
 const SonyTVAppointmentForm = () => {
   const { toast } = useToast();
@@ -212,11 +212,11 @@ const SonyTVAppointmentForm = () => {
                         <label htmlFor="service" className="text-sm font-medium">
                           Sony TV Model
                         </label>
-                        <Select onValueChange={(value) => handleSelectChange('service', value)}>
+                        <Select onValueChange={(value) => handleSelectChange('service', value)} required>
                           <SelectTrigger id="service">
                             <SelectValue placeholder="Select your Sony TV model" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-white">
                             <SelectItem value="sony-bravia">Sony Bravia</SelectItem>
                             <SelectItem value="sony-oled">Sony OLED</SelectItem>
                             <SelectItem value="sony-led">Sony LED</SelectItem>
@@ -245,11 +245,11 @@ const SonyTVAppointmentForm = () => {
                         <label htmlFor="time" className="text-sm font-medium">
                           Preferred Time
                         </label>
-                        <Select onValueChange={(value) => handleSelectChange('time', value)}>
+                        <Select onValueChange={(value) => handleSelectChange('time', value)} required>
                           <SelectTrigger id="time">
                             <SelectValue placeholder="Select time slot" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-white">
                             <SelectItem value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</SelectItem>
                             <SelectItem value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</SelectItem>
                             <SelectItem value="Evening (4PM - 8PM)">Evening (4PM - 8PM)</SelectItem>
@@ -260,15 +260,54 @@ const SonyTVAppointmentForm = () => {
                     
                     <div className="space-y-2 mb-8">
                       <label htmlFor="problem" className="text-sm font-medium">
-                        Problem Description
+                        TV Problem
                       </label>
-                      <Textarea 
-                        id="problem"
-                        placeholder="Please describe the issue you're experiencing with your Sony TV"
-                        value={formData.problem}
-                        onChange={handleInputChange}
-                        rows={4}
-                      />
+                      <Select onValueChange={(value) => handleSelectChange('problem', value)} required>
+                        <SelectTrigger id="problem">
+                          <SelectValue placeholder="Select the issue with your Sony TV" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white">
+                          <SelectItem value="No power or won't turn on">
+                            <div className="flex items-center gap-2">
+                              <Zap className="h-4 w-4" />
+                              <span>No power or won't turn on</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Black screen but has sound">
+                            <div className="flex items-center gap-2">
+                              <Image className="h-4 w-4" />
+                              <span>Black screen but has sound</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Picture issues (distorted, lines, pixels)">
+                            <div className="flex items-center gap-2">
+                              <Tv className="h-4 w-4" />
+                              <span>Picture issues (distorted, lines, pixels)</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Sound issues or no audio">
+                            <div className="flex items-center gap-2">
+                              <Volume2 className="h-4 w-4" />
+                              <span>Sound issues or no audio</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Smart TV features not working">
+                            <div className="flex items-center gap-2">
+                              <Wifi className="h-4 w-4" />
+                              <span>Smart TV features not working</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="HDMI or input problems">
+                            <div className="flex items-center gap-2">
+                              <HardDrive className="h-4 w-4" />
+                              <span>HDMI or input problems</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Other issue">
+                            <span>Other issue</span>
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                     
                     <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
@@ -276,7 +315,7 @@ const SonyTVAppointmentForm = () => {
                     </Button>
                     
                     <p className="text-xs text-foreground/60 text-center mt-4">
-                      By submitting this form, you agree to our <a href="/terms" className="text-primary hover:underline">Terms of Service</a> and <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
+                      By submitting this form, you agree to our <a href="/sony-tv-terms" className="text-primary hover:underline">Terms of Service</a> and <a href="/sony-tv-privacy" className="text-primary hover:underline">Privacy Policy</a>.
                     </p>
                   </form>
                 </CardContent>
