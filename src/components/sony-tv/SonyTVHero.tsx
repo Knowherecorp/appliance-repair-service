@@ -76,7 +76,7 @@ const SonyTVHero = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
             >
               {[
-                "Sony certified technicians",
+                "Certified technicians",
                 "90-day parts warranty",
                 "Same-day service available",
                 "All Sony models serviced"
