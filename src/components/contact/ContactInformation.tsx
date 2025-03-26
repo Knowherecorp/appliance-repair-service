@@ -18,9 +18,9 @@ const ContactInformation = () => {
               <div>
                 <h4 className="font-medium mb-1">Address</h4>
                 <p className="text-foreground/70">
-                  Shop 2, 96, Banashankari<br /> 
-                  2nd Stage<br />
-                  Bangalore, 560070
+                  Bangalore<br /> 
+                  Mumbai<br />
+                  Delhi
                 </p>
               </div>
             </div>
