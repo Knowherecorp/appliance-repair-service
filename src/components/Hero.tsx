@@ -110,7 +110,7 @@ const Hero = () => {
             <div className="relative bg-white rounded-2xl shadow-elevation overflow-hidden h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-blue-100/30" aria-hidden="true"></div>
               <img 
-                src="https://img.freepik.com/free-photo/service-maintenance-worker-repairing_23-2149176713.jpg?t=st=1742591710~exp=1742595310~hmac=77139ff57c87c4f8d44ea4c390e6eff20bb87637ccfb470a83150c7f9b7c49f9&w=996" 
+                src="../h1.jpg" 
                 alt="Technician repairing a home appliance" 
                 className="w-full h-full object-cover"
               />
