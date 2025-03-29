@@ -27,10 +27,6 @@ const Footer = () => {
             <p className="text-foreground/70 mb-6">
               Professional appliance repair services you can trust. Fast, reliable, and guaranteed.
             </p>
-
-            <p className="text-foreground/70 mb-6">
-            www.customercareservice.co Website Is Collecting data for INDIA APPLIANCE EXPERTS. and INDIA APPLIANCE EXPERTS is a owner or Proprietor. INDIA APPLIANCE EXPERTS owned this site and Business.
-            </p>
           </div>
           
           <div>
@@ -128,7 +124,12 @@ const Footer = () => {
                 hello@customercareservice.co
                 </a>
               </li>
-              <h3 className="font-bold text-lg">Business Relationship Proof</h3>
+            </ul>
+            <h3 className="font-bold text-lg">Business Relationship Proof</h3>
+            <ul>
+              <li>UDYAM Certificate Number:- UDYAM-KR-03-0489394</li>
+              <li>Our Company Name:- INDIA APPLIANCE EXPERTS</li>
+              <li>Owner Name:- ABDUL AZEEM ANSARI</li>
             </ul>
           </div>
         </div>
@@ -137,7 +138,7 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/60 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Appliance Care. All rights reserved.
+            &copy; {currentYear} This Website Is Collecting data for INDIA APPLIANCE EXPERTS. and INDIA APPLIANCE EXPERTS is a owner or Proprietor. INDIA APPLIANCE EXPERTS owned this site and Business.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link to="/privacy" className="text-foreground/60 hover:text-primary">
@@ -146,9 +147,6 @@ const Footer = () => {
             <Link to="/terms" className="text-foreground/60 hover:text-primary">
               Terms of Service
             </Link>
-            <a href="#" className="text-foreground/60 hover:text-primary">
-              Sitemap
-            </a>
           </div>
         </div>
       </div>
