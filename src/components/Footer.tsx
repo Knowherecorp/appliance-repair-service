@@ -27,36 +27,10 @@ const Footer = () => {
             <p className="text-foreground/70 mb-6">
               Professional appliance repair services you can trust. Fast, reliable, and guaranteed.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-              <a 
-                href="#" 
-                className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-            </div>
+
+            <p className="text-foreground/70 mb-6">
+            www.customercareservice.co Website Is Collecting data for INDIA APPLIANCE EXPERTS. and INDIA APPLIANCE EXPERTS is a owner or Proprietor. INDIA APPLIANCE EXPERTS owned this site and Business.
+            </p>
           </div>
           
           <div>
@@ -143,7 +117,6 @@ const Footer = () => {
                 Bangalore<br />
                 Mumbai<br />
                 Hyderabad<br />
-                Delhi
               </li>
               <li>
                 <a href="tel:18008332040" className="text-foreground/70 hover:text-primary">
@@ -155,6 +128,7 @@ const Footer = () => {
                 hello@customercareservice.co
                 </a>
               </li>
+              <h3 className="font-bold text-lg">Business Relationship Proof</h3>
             </ul>
           </div>
         </div>
