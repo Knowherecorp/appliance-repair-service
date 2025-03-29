@@ -126,10 +126,10 @@ const Footer = () => {
               </li>
             </ul>
             <h3 className="font-bold text-lg">Business Relationship Proof</h3>
-            <ul>
-              <li>UDYAM Certificate Number:- UDYAM-KR-03-0489394</li>
-              <li>Our Company Name:- INDIA APPLIANCE EXPERTS</li>
-              <li>Owner Name:- ABDUL AZEEM ANSARI</li>
+            <ul className="space-y-3">
+              <li className="text-foreground/70">UDYAM Certificate Number:- UDYAM-KR-03-0489394</li>
+              <li className="text-foreground/70">Our Company Name:- INDIA APPLIANCE EXPERTS</li>
+              <li className="text-foreground/70">Owner Name:- ABDUL AZEEM ANSARI</li>
             </ul>
           </div>
         </div>
@@ -138,16 +138,8 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/60 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} This Website Is Collecting data for INDIA APPLIANCE EXPERTS. and INDIA APPLIANCE EXPERTS is a owner or Proprietor. INDIA APPLIANCE EXPERTS owned this site and Business.
+            &copy; {currentYear} This Website Is Collecting data for INDIA APPLIANCE EXPERTS and INDIA APPLIANCE EXPERTS is a owner or Proprietor. INDIA APPLIANCE EXPERTS owned this site and Business.
           </p>
-          <div className="flex space-x-6 text-sm">
-            <Link to="/privacy" className="text-foreground/60 hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="text-foreground/60 hover:text-primary">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
