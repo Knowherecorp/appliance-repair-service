@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { submitContactForm, FormData } from "@/utils/api";
@@ -14,6 +15,7 @@ const ContactFormContainer = () => {
     name: '',
     phone: '',
     email: '',
+    address: '',
     service: '',
     date: '',
     time: '',

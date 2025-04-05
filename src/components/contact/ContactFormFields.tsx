@@ -93,6 +93,20 @@ const ContactFormFields = ({
               </Select>
             </div>
             
+            <div className="space-y-2 md:col-span-2">
+              <label htmlFor="address" className="text-sm font-medium">
+                Address
+              </label>
+              <Input 
+                id="address"
+                type="text"
+                placeholder="Your complete address for service"
+                value={formData.address}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            
             <div className="space-y-2">
               <label htmlFor="date" className="text-sm font-medium">
                 Preferred Date
