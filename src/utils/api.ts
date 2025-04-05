@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js';
 import { supabase as supabaseClient } from '@/integrations/supabase/client';
 
@@ -180,6 +181,17 @@ export const deleteContactSubmission = async (id: string) => {
     return true;
   } catch (error) {
     console.error('Error deleting contact submission:', error);
+    return false;
+  }
+};
+
+// New utility function to copy text to clipboard
+export const copyToClipboard = async (text: string): Promise<boolean> => {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (error) {
+    console.error('Failed to copy text:', error);
     return false;
   }
 };

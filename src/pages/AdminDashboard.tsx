@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -16,8 +17,8 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Helmet } from 'react-helmet-async';
 import { useToast } from "@/components/ui/use-toast";
-import { Trash2 } from 'lucide-react';
-import { getContactSubmissions, deleteContactSubmission, updateSubmissionStatus, SubmissionStatus } from '@/utils/api';
+import { Trash2, Copy, Eye } from 'lucide-react';
+import { getContactSubmissions, deleteContactSubmission, updateSubmissionStatus, SubmissionStatus, copyToClipboard } from '@/utils/api';
 
 // Interface for contact form submissions
 interface Inquiry {
@@ -31,6 +32,7 @@ interface Inquiry {
   problem: string;
   status: SubmissionStatus;
   submittedAt: string;
+  address: string;
 }
 
 const AdminDashboard = () => {
@@ -127,6 +129,43 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleCopyDetails = async (inquiry: Inquiry) => {
+    const formattedDetails = `
+Customer Details:
+----------------
+Name: ${inquiry.name}
+Phone: ${inquiry.phone}
+Email: ${inquiry.email}
+Address: ${inquiry.address || 'N/A'}
+
+Service Details:
+--------------
+Service Type: ${inquiry.service}
+Date: ${inquiry.date}
+Time: ${inquiry.time}
+Problem Description: ${inquiry.problem}
+
+Status: ${inquiry.status}
+Submitted: ${new Date(inquiry.submittedAt).toLocaleString()}
+ID: ${inquiry.id}
+    `.trim();
+
+    const success = await copyToClipboard(formattedDetails);
+    
+    if (success) {
+      toast({
+        title: "Copied to clipboard",
+        description: "Customer details have been copied to your clipboard",
+      });
+    } else {
+      toast({
+        title: "Copy failed",
+        description: "Failed to copy customer details. Please try again.",
+        variant: "destructive"
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Helmet>
@@ -205,8 +244,17 @@ const AdminDashboard = () => {
                                 `);
                               }}
                             >
-                              View
+                              <Eye className="h-4 w-4" />
                             </Button>
+                            
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleCopyDetails(inquiry)}
+                            >
+                              <Copy className="h-4 w-4" />
+                            </Button>
+                            
                             <select
                               className="border rounded-md h-9 px-2 text-sm bg-background"
                               value={inquiry.status}
