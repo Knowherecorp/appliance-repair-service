@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js';
 import { supabase as supabaseClient } from '@/integrations/supabase/client';
 
@@ -120,7 +121,8 @@ export const getContactSubmissions = async () => {
       name: item.name,
       phone: item.phone,
       email: item.email,
-      address: item.address,
+      // Handle the case where address might be missing in the database
+      address: item.address || '',
       service: item.service,
       date: item.date,
       time: item.time,
