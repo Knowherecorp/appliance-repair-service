@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,7 +36,6 @@ const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) 
   });
   
   useEffect(() => {
-    // If rendered in a modal, set visibility to true immediately
     if (inModal) {
       setIsVisible(true);
       return;
@@ -111,6 +109,7 @@ const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) 
       name: '',
       phone: '',
       email: '',
+      address: '',
       service: '',
       date: '',
       time: '',
@@ -128,7 +127,6 @@ const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) 
     }
   };
 
-  // The form content to be used in both modal and section
   const formContent = (
     <>
       {submitted ? (
@@ -335,12 +333,10 @@ const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) 
     </>
   );
 
-  // If in modal, just return the form content
   if (inModal) {
     return <div className="px-2 py-2">{formContent}</div>;
   }
 
-  // Otherwise render as a full section
   return (
     <section ref={sectionRef} id="appointment" className="py-20 bg-blue-50">
       <div className="container mx-auto px-6">

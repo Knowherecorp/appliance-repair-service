@@ -1,4 +1,3 @@
-
 import { createClient } from '@supabase/supabase-js';
 import { supabase as supabaseClient } from '@/integrations/supabase/client';
 
@@ -6,6 +5,7 @@ export interface FormData {
   name: string;
   phone: string;
   email: string;
+  address: string;
   service: string;
   date: string;
   time: string;
@@ -81,6 +81,7 @@ export const getContactSubmissions = async () => {
         name: 'John Smith',
         phone: '555-123-4567',
         email: 'john@example.com',
+        address: '123 Main St',
         service: 'washing-machine',
         date: '2025-01-15',
         time: 'Morning (8AM - 12PM)',
@@ -93,6 +94,7 @@ export const getContactSubmissions = async () => {
         name: 'Jane Doe',
         phone: '555-987-6543',
         email: 'jane@example.com',
+        address: '456 Elm St',
         service: 'refrigerator',
         date: '2025-01-16',
         time: 'Afternoon (12PM - 4PM)',
@@ -118,6 +120,7 @@ export const getContactSubmissions = async () => {
       name: item.name,
       phone: item.phone,
       email: item.email,
+      address: item.address,
       service: item.service,
       date: item.date,
       time: item.time,
