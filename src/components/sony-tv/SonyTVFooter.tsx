@@ -113,11 +113,6 @@ const SonyTVFooter = () => {
                   1800-833-2040
                 </a>
               </li>
-              <li>
-                <a href="mailto:hello@customercareservice.co" className="text-foreground/70 hover:text-primary">
-                  hello@customercareservice.co
-                </a>
-              </li>
             </ul>
           </div>
         </div>

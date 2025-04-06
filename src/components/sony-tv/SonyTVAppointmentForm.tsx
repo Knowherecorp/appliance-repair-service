@@ -312,6 +312,12 @@ const SonyTVAppointmentForm = ({ inModal = false }: SonyTVAppointmentFormProps) 
                         <span>HDMI or input problems</span>
                       </div>
                     </SelectItem>
+                    <SelectItem value="Red light blinking">
+                      <div className="flex items-center gap-2">
+                        <Zap className="h-4 w-4" />
+                        <span>Red light blinking</span>
+                      </div>
+                    </SelectItem>
                     <SelectItem value="Other issue">
                       <span>Other issue</span>
                     </SelectItem>

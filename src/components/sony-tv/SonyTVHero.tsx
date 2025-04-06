@@ -68,7 +68,7 @@ const SonyTVHero = () => {
               className="text-lg text-foreground/80 mb-8 leading-relaxed"
             >
               Fast, reliable repairs for all Sony TV models including Bravia, OLED, LED, and 4K Smart TVs.
-              Our certified technicians provide same-day service with a 90-day parts warranty.
+              Our certified technicians provide same-day service.
             </motion.p>
             
             <motion.div
@@ -77,7 +77,6 @@ const SonyTVHero = () => {
             >
               {[
                 "Certified technicians",
-                "90-day parts warranty",
                 "Same-day service available",
                 "All Sony models serviced"
               ].map((item, index) => (
